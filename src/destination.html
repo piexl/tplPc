@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>目的地</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  
+<link rel="stylesheet" href="./lib/swiper.min.css">
+<link rel="stylesheet" href="./lib/font-awesome.min.css">
+<link rel="stylesheet" href="./css/app.css">
+<script src="./lib/jquery-1.8.3.min.js"></script>
+<script src="./lib/tween.js"></script>
+<script src="./lib/vue.min.js"></script>
+<script src="./lib/swiper-3.4.0.jquery.min.js"></script>
+<script src="./lib/snap.svg-min.js"></script>
+</head>
+<body>
+
+<!-- header start -->
+<header class="header animated fadeInDown after-clear">
+	<div class="header-inner">
+		<ul class="out-links header-left after-clear">
+			<li class="float-left wecaht-box">
+				<span class="out-link"><i class="fa fa-weixin"></i></span>
+				<div class="qr-code animated fadeIn">
+					<div class="qr-code-inner img-box">
+						<i class="icon_sanjiao"></i>
+						<img src="imgs/wx-code.png" alt="">
+					</div>
+				</div>
+			</li>
+			<li class="float-left weibo-box"><a href="#" target="_blank" class="out-link"><i class="fa fa-weibo"></i></a></li>
+			<li class="float-left youku-box"><a href="#" target="_blank" class="out-link"><i class="icon icon-youku"></i></a></li>
+			<li class="float-left en-box"><a href="#" target="_blank" class="out-link">En</a></li>
+			<li class="float-left search-box"><a href="javascript:;" class="out-link" id="openMobileSearch"><i class="fa fa-search"></i></a></li>
+		</ul>
+		<div class="header-title text-center"><h2><i class="icon icon-title"></i><span>目的地</span></h2></div>
+		<div class="header-right">
+			<button class="btn menu-btn" id="openMenuBtn"><i class="fa fa-bars"></i></button>
+			<button class="btn close-btn" id="closeMenuBtn"><i class="fa fa-close"></i></button>
+		</div>
+	</div>
+</header>
+<!-- header end -->
+
+<!-- mobile-search end -->
+<div class="mobile-search mobile-search-hide animated" id="mobileSearch">
+	<div class="search-header">
+		<div class="input-box">
+			<input type="text" id="mobileSearchInput" placeholder="搜索景点和目的地">
+			<button class="btn search-btn" id="mobileSearchBtn"><i class="fa fa-search"></i></button>
+		</div>
+		<button class="btn close-btn" id="CloseMobileSearch"><i class="fa fa-close"></i></button>
+	</div>
+	<ul class="search-focus">
+	    <li class="search-item after-clear">
+	        <div class="search-item-title float-left">历史搜索</div>
+	        <div class="search-item-content float-left after-clear">
+	            <a href="#">马拉加</a>
+	            <a href="#">格拉纳达</a>
+	            <a href="#">塞维利亚</a>
+	            <a href="#">巴塞罗那</a>
+	            <a href="#">萨拉曼卡</a>
+	        </div>
+	    </li>
+	    <li class="search-item after-clear">
+	        <div class="search-item-title float-left">热门景点</div>
+	        <div class="search-item-content float-left after-clear">
+	            <a href="#">加那利群岛</a>
+	            <a href="#">巴利阿里群岛</a>
+	            <a href="#">太阳海岸</a>
+	            <a href="#">马德里</a>
+	        </div>
+	    </li>
+	    <li class="search-item after-clear">
+	        <div class="search-item-title float-left">热门目的地</div>
+	        <div class="search-item-content float-left after-clear">
+	            <a href="#">卡斯蒂利亚-拉曼恰</a>
+	            <a href="#">圣克里斯托瓦尔</a>
+	            <a href="#">卡斯蒂利亚-莱昂</a>
+	            <a href="#">圣地亚哥•德孔波斯特</a>
+	            <a href="#">萨拉曼卡</a>
+	        </div>
+	    </li>
+	</ul>
+</div>
+<!-- mobile-search end -->
+
+<!-- menu start -->
+<div class="menu menu-hide animated" id="menu">
+	<div class="menu-inner">
+		<div class="memu-content after-clear">
+			<div class="menu-left float-left">
+				<nav class="nav">
+					<li><a href="#"><i class="icon icon-title-black"></i>首页</a></li>
+					<li><a href="#" class="cur"><i class="icon icon-title-black"></i>目的地</a></li>
+					<li><a href="#"><i class="icon icon-title-black"></i>关于西班牙</a></li>
+					<li><a href="#"><i class="icon icon-title-black"></i>玩转西班牙</a></li>
+					<li><a href="#"><i class="icon icon-title-black"></i>行程路线</a></li>
+				</nav>
+				<div class="search-box">
+					<div class="search"><input type="text" id="searchInput" placeholder="搜索景点和目的地"><button class="btn search-btn"><i class="fa fa-search"></i></button></div>
+					<div class="search-focus-box" id="search-focus-box">
+						<div class="search-focus-inner">
+							<button class="btn close-btn" id="closeSearchBtn"><i class="fa fa-close"></i></button>
+							<ul class="search-focus">
+		                        <li class="search-item after-clear">
+		                            <div class="search-item-title float-left">历史搜索</div>
+		                            <div class="search-item-content float-left after-clear">
+		                                <a href="#">马拉加</a>
+		                                <a href="#">格拉纳达</a>
+		                                <a href="#">塞维利亚</a>
+		                                <a href="#">巴塞罗那</a>
+		                                <a href="#">萨拉曼卡</a>
+		                            </div>
+		                        </li>
+		                        <li class="search-item after-clear">
+		                            <div class="search-item-title float-left">热门景点</div>
+		                            <div class="search-item-content float-left after-clear">
+		                                <a href="#">加那利群岛</a>
+		                                <a href="#">巴利阿里群岛</a>
+		                                <a href="#">太阳海岸</a>
+		                                <a href="#">马德里</a>
+		                            </div>
+		                        </li>
+		                        <li class="search-item after-clear">
+		                            <div class="search-item-title float-left">热门目的地</div>
+		                            <div class="search-item-content float-left after-clear">
+		                                <a href="#">卡斯蒂利亚-拉曼恰</a>
+		                                <a href="#">圣克里斯托瓦尔</a>
+		                                <a href="#">卡斯蒂利亚-莱昂</a>
+		                                <a href="#">圣地亚哥•德孔波斯特</a>
+		                                <a href="#">萨拉曼卡</a>
+		                            </div>
+		                        </li>
+		                        <li class="search-item after-clear">
+		                            <div class="search-item-title float-left">热门景点</div>
+		                            <div class="search-item-content float-left after-clear">
+		                                <a href="#">加那利群岛</a>
+		                                <a href="#">巴利阿里群岛</a>
+		                                <a href="#">太阳海岸</a>
+		                                <a href="#">马德里</a>
+		                            </div>
+		                        </li>
+		                        <li class="search-item after-clear">
+		                            <div class="search-item-title float-left">热门目的地</div>
+		                            <div class="search-item-content float-left after-clear">
+		                                <a href="#">卡斯蒂利亚-拉曼恰</a>
+		                                <a href="#">圣克里斯托瓦尔</a>
+		                                <a href="#">卡斯蒂利亚-莱昂</a>
+		                                <a href="#">圣地亚哥•德孔波斯特</a>
+		                                <a href="#">萨拉曼卡</a>
+		                            </div>
+		                        </li>
+		                    </ul>
+	                    </div>
+                    </div>
+				</div>
+				<div class="menu-footer"><a href="#" class="en-link">English</a></div>
+			</div>
+			<div class="menu-right float-left">
+                <div class="row after-clear">
+                    <div class="float-left section section-hot">
+                        <h3 class="section-title">热门旅游目的地</h3>
+                        <ul class="section-list after-clear">
+                            <li><a href="#">巴塞罗娜</a></li>
+                            <li><a href="#">毕尔巴鄂</a></li>
+                            <li><a href="#">塞维利亚</a></li>
+                            <li><a href="#">萨拉戈萨</a></li>
+                            <li><a href="#">格拉纳达</a></li>
+                            <li><a href="#">莱昂</a></li>
+                            <li><a href="#">马拉加</a></li>
+                            <li><a href="#">马德里</a></li>
+                            <li><a href="#">瓦伦西亚</a></li>
+                        </ul>
+                    </div>
+                    <div class="float-left section section-city">
+                        <h3 class="section-title">UNESCO世界遗产城市</h3>
+                        <ul class="section-list">
+                            <li><a href="#">科尔多瓦</a></li>
+                            <li><a href="#">塞哥维亚</a></li>
+                            <li><a href="#">阿尔卡拉•德埃纳雷斯</a></li>
+
+                            <li><a href="#">阿维拉</a></li>
+                            <li><a href="#">塔拉戈纳</a></li>
+                            <li><a href="#">伊维萨岛</a></li>
+
+                            <li><a href="#">巴埃萨</a></li>
+                            <li><a href="#">托莱多</a></li>
+                            <li><a href="#">萨拉曼卡</a></li>
+
+                            <li><a href="#">昆卡</a></li>
+                            <li><a href="#">乌维达</a></li>
+                            <li><a href="#">圣克里斯托瓦尔•德拉•拉古纳</a></li>
+
+                            <li><a href="#">卡塞雷斯</a></li>
+                            <li><a href="#">梅里达</a></li>
+                            <li><a href="#">圣地亚哥•德孔波斯特拉</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row after-clear">
+                    <div class="section section-town">
+                        <h3 class="section-title">特色小镇</h3>
+                        <ul class="section-list">
+                            <li><a href="#"><span>贝赫尔德拉弗龙特拉</span><span class="en-desc">Vejer de la Frontera</span></a></li>
+                            <li><a href="#"><span>弗里亚斯</span><span class="en-desc">Frías</span></a></li>
+                            <li><a href="#"><span>贝萨卢</span><span class="en-desc">Besalú</span></a></li>
+                            <li><a href="#"><span>阿尔瓦拉辛</span><span class="en-desc">Albarracín</span></a></li>
+                            <li><a href="#"><span>佩德拉泽德拉谢拉</span><span class="en-desc">Pedraza de la Sierra</span></a></li>
+                            <li><a href="#"><span>卡斯特利福利特德拉罗卡</span><span class="en-desc">Castellfollit&nbsp; de&nbsp; la&nbsp; Roca</span></a></li>
+                            <li><a href="#"><span>库迪列罗</span><span class="en-desc">Cudillero</span></a></li>
+                            <li><a href="#"><span>拉阿尔韦卡</span><span class="en-desc">La&nbsp; Alberca</span></a></li>
+                            <li><a href="#"><span>宏达瑞比亚</span><span class="en-desc">Hondarribia</span></a></li>
+                            <li><a href="#"><span>瓦尔德摩萨</span><span class="en-desc">Valldemossa</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row after-clear">
+                    <div class="section section-area">
+                        <h3 class="section-title">自治大区</h3>
+                        <ul class="section-list">
+                            <li><a href="#">安达卢西亚</a></li>
+                            <li><a href="#">巴斯克地区</a></li>
+                            <li><a href="#">阿拉贡</a></li>
+                            <li><a href="#">卡斯蒂利亚-拉曼恰</a></li>
+                            <li><a href="#">加那利群岛</a></li>
+                            <li><a href="#">阿斯图里亚斯</a></li>
+                            <li><a href="#">马德里</a></li>
+                            <li><a href="#">卡斯蒂利亚-莱昂</a></li>
+                            <li><a href="#">坎塔布里亚</a></li>
+                            <li><a href="#"> 穆尔西亚</a></li>
+                            <li><a href="#">休达</a></li>
+                            <li><a href="#">拉里奥哈</a></li>
+                            <li><a href="#">加泰罗尼亚</a></li>
+                            <li><a href="#">埃斯特雷马杜拉</a></li>
+                            <li><a href="#">梅利利亚</a></li>
+                            <li><a href="#">瓦伦西亚</a></li>
+                            <li><a href="#">纳瓦拉</a></li>
+                            <li><a href="#">加利西亚</a></li>
+                            <li><a href="#">巴利阿里群岛</a></li>
+                        </ul>
+                    </div>
+                </div>
+			</div>
+		</div>
+		<!-- footer start -->
+		<footer class="footer">
+			<div class="footer-links">
+				<a href="#">关于我们</a><span>|</span>
+				<a href="#">隐身政策</a><span>|</span>
+				<a href="#">网站地图</a><span>|</span>
+				<a href="#">官方旅游手册下载</a>
+			</div>
+			<p class="copyright">版权所有 Turespaña / Segittur © 2016</p>
+		</footer>
+		<!-- footer start -->
+	</div>
+</div>
+<!-- menu end -->
+
+<!-- page start -->
+<div class="page page-destination">
+	<div class="logo"><div class="logo-inner"><a href="#"></a></div></div>
+	<div class="page-inner">
+		
+		<!-- moble start -->
+		<div id="destination-moble">
+			<h3 class="moble-title text-center">热门旅游目的地</h3>
+			<div class="moble-sction text-center">
+				<div class="moble-sction-inner after-clear">
+					<a href="#">巴塞罗那</a>
+					<a href="#">马拉加</a>
+					<a href="#"class="un-right-border">萨拉戈萨</a>
+					<div class="line"></div>
+					<a href="#">塞维利亚</a>
+					<a href="#">瓦伦西亚</a>
+					<a href="#"class="un-right-border">莱昂</a>
+					<div class="line"></div>
+					<a href="#">格拉纳达</a>
+					<a href="#">毕尔巴鄂</a>
+					<a href="#"class="un-right-border">马德里</a>
+				</div>
+			</div>
+			<h3 class="moble-title text-center">UNESCO世界遗产城市</h3>
+			<div class="moble-sction text-center">
+				<div class="moble-sction-inner after-clear">
+					<a href="#">科尔多瓦</a>
+					<a href="#">卡塞雷斯</a>
+					<a href="#" class="un-right-border">乌维达</a>
+					<div class="line"></div>
+					<a href="#">阿维拉</a>
+					<a href="#">塞哥维亚</a>
+					<a href="#" class="un-right-border">梅里达</a>
+					<div class="line"></div>
+					<a href="#">巴埃萨</a>
+					<a href="#">塔拉戈纳</a>
+					<a href="#" class="un-right-border">伊维萨岛</a>
+					<div class="line"></div>
+					<a href="#">昆卡</a>
+					<a href="#">托莱多</a>
+					<a href="#" class="un-right-border">萨拉曼卡</a>
+					<div class="line"></div>
+					<a href="#">阿尔卡拉<br/>德埃纳雷斯</a>
+					<a href="#">圣克里斯托瓦尔<br/>德拉·拉古纳</a>
+					<a href="#" class="un-right-border">圣地亚哥<br/>德孔波斯特拉</a>
+				</div>
+			</div>
+		</div>
+		<!-- moble end -->
+
+		<!-- svg map start -->
+		<div id="svgmap">
+			<!-- map nav start -->
+			<div class="mapNav">
+				<nav class="nav">
+					<li class="nav-item">热门旅游目的地<i class="fa fa-angle-right float-right"></i></li>
+					<li class="nav-item">人类文化遗产<i class="fa fa-angle-right float-right"></i></li>
+					<li class="nav-item">特色小镇<i class="fa fa-angle-right float-right"></i></li>
+					<li class="nav-item nav-item-cur">自治区/自治市<i class="fa fa-angle-right float-right"></i></li>
+				</nav>
+				<div class="mapNav-footer">
+					<p>西班牙全国共有17个自治区，2个自治市；下设50个省、8100多个市镇。每个自治区由一个或多个省组成，每个省由若干个城市、村镇或岛屿组成。</p>
+				</div>
+			</div>
+			<!-- map nav end -->
+			<!-- map area start -->
+			<div class="mapArea">
+				<div class="mapArea-inner">
+					<svg id="map"></svg>
+<!-- 						<div class="content-item content-hot"></div>
+					<div class="content-item content-culture"></div>
+					<div class="content-item content-town"></div> -->
+					<ul class="content-item content-item-show content-area area-list">
+						<li class="list-item animated fadeIn" data-id='alagong' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">阿拉贡</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='asituliyasi' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">阿斯图里亚斯</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='basikequ' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">巴斯克区</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='baliali' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">巴利阿里</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='katabuliya' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">卡塔布里亚</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='kadiliya' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">卡斯蒂利亚-拉曼恰</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='laiying' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">卡斯蒂利亚-莱昂</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='jiatailuoniya' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">加泰罗尼亚</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='aisiteleimadula' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">埃斯特雷马杜拉</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='jialixiya' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">加利西亚</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='laliaoha' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">拉里奥哈</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='madeli' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">马德里</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='muerxiya' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">穆尔西亚</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='nawala' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">纳瓦拉</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='andaluxiya' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">安达卢西亚</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='walunxiya' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">瓦伦西亚</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='meililiya' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">梅利利亚</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+						<li class="list-item animated fadeIn" data-id='jianaliqundao' data-bg-src="imgs/destination_bg.jpg">
+							<div class="list-item-inner">
+								<button class="btn closeMapMark"><i class="fa fa-close"></i></button>
+								<a href="#" class="img-box"><img src="imgs/destination_bg.jpg" alt=""></a>
+								<h3><a href="#">加那利群岛</a></h3>
+								<p>西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰西班牙的一个自治区，延伸于马德里南部，占据古老的卡斯蒂利亚的南部地区，包括拉曼恰</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- map area end -->
+		</div>
+		<!-- svg map end -->
+	</div>
+</div>
+<!-- page end -->
+<script src="./js/common.js"></script>
+<script src="./js/svgMap.js"></script>
+<script>
+$(function(){
+	var NewSvgmap = new SvgMap($("#map"),"imgs/svgmap.svg",0,0,830,580);
+
+	$('#svgmap').on('click','.closeMapMark',function(){
+		var svgId = $(this).parents('.list-item').attr('data-id');
+		console.log('svgId',svgId);
+		NewSvgmap.CloseMapMark(svgId);
+	});
+
+});
+</script>
+</body>
+</html>
