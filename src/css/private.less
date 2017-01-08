@@ -29,6 +29,7 @@ a{
 		}
 	}
 }
+
 button{
 	cursor:pointer;
 	padding:0.5em 1em;
@@ -53,130 +54,22 @@ button{
 	}
 }
 
-
-//icon
-.icon{
-	display:inline-block;
-	width:40px;
-	height:40px;
-	background: url(../imgs/icon_title.png) center center no-repeat;
-	background-size:100% 100%;
-	&.icon-title{
-		background: url(../imgs/icon_title.png) center center no-repeat;
-		background-size:100% 100%;
-	}
-	&.icon-title-black{
-		width:36px;
-		height:39px;
-		background: url(../imgs/icon_title_black.png) center center no-repeat;
-		background-size:100% 100%;
-	}
-	&.icon-youku{
-		width:33px;
-		height:20px;
-		background: url(../imgs/icon_youku.png) 0 0 no-repeat;
-	}
-	&.icon-clock-o{
-		width:33px;
-		height:33px;
-		background: url(../imgs/icon_clock.png) 0 0 no-repeat;
-	}
-}
-
-//loading
-.loading{
-	color:@color-white;
-	.fa{
-		font-size:40px;
-		.transform-origin(center,center);
-		.animation(animation-rotate,2s,linear,infinite,normal,forwards);
-	}
-}
-
-//面包屑
-.crumbs{
-	font:normal 16px/1.5 'Microsoft YaHei';
-	margin-bottom:0.5em;
-	color:@color-white;
-	a{
-		color:@color-white;
-		&:hover{
-			color:@color-red;
-		}
-	}
-	.line{
-		font-style:normal;
-		padding:0 0.3em;
-	}
-}
-
-
-//手机搜索
-.mobile-search{
-	position:fixed;top:0;left:0;.full-box;z-index:99999;.border-box;padding:0 1em;background:@color-white url(../imgs/search_bg.jpg) left center no-repeat;background-size:cover;
-	&.mobile-search-hide{display:none;}
-	.search-header{padding:1em 0;width:100%;.border-box;padding-right:40px;position:relative;
-		.input-box{width:100%;position:relative;
-			input{width:100%;padding:5px 0.5em;.border-box;display:inline-block;border-radius:40px;border:2px solid @color-black;font:normal 14px/1.2 'Microsoft YaHei';
-				&:focus{border-color:@color-red;outline:none;}
-			.placeholder(#999999);}
-			.search-btn{cursor:pointer;position:absolute;top:3px;right:0.5em;font-size:20px;background-color:transparent;border:0;padding:0;line-height:1;
-				&:hover{color:@color-red;}
-			}
-		}
-		.close-btn{display:block;border:2px solid #c0c0c0;width:32px;height:32px;padding:0;text-align:center;line-height:18px;background-color:transparent;.border-radius(50%);
-			.fa{font-size:14px;}
-			position:absolute;top:1em;right:0;
-			&:hover{background-color:#333;border-color:#333;color:#fff;}
-		}
-	}
-	.search-focus{.full-box;overflow-y:scroll;.border-box;padding-bottom:4em;
-		a{float:left;display:inline-block;color:@color-black;padding:0.2em 0.6em;background-color:#e8e8e8;margin-bottom:0.5em;margin-right:0.5em;
-			&:hover{background-color:@color-red;color:#fff;text-decoration:none;}
-		}
-		.search-item-title{color:#666;margin-bottom:0.5em;}
-		.search-item{margin-bottom:0.5em;}
-	}
-}
-
-//幻灯片
-.swiper-pagination-bullet{
-	background-color:@color-white;
-	opacity:0.9;
-	cursor:pointer;
-	.transition(all,0.5s,ease,0s);
-	&:hover,&.swiper-pagination-bullet-active{
-		background-color:@color-red;
-		.transform_scale3d(1.4,1.4,1.4);
-	}
-}
-.swiper-prev,.swiper-next{cursor:pointer;font:normal 40px/1 'Microsoft YaHei';color:darken(@color-white,10%);position:absolute;top:50%;margin-top:-20px;z-index:10;
-	&:hover{color:@color-red;}
-	&.swiper-button-disabled{opacity:0.1;
-		&:hover{color:@color-white;}
-	}
-}
-.swiper-prev{left:40px;}
-.swiper-next{right:40px;}
-
-/* 中等屏幕（桌面显示器，大于等于 1136px 小于1336px） */
+/* 中等屏幕（桌面显示器，小于1336px） */
 @media screen and (max-width:1336px){
 
 }
-/* 中等屏幕（桌面显示器，大于等于 992px 小于1024px） */
+
+/* 中等屏幕（桌面显示器, 小于1024px） */
 @media screen and (max-width:1024px){
 
 }
-/* 小屏幕（平板，大于等于 768px） */
-@media (min-width: 768px) and (max-width:992px){
+
+/* 小屏幕（平板, 大于等于 992px) */
+@media screen and (max-width:992px){
 
 }
+
 /* 小屏幕（手机，小于 768px）*/
 @media(max-width: 768px){
-
-	.loading{.fa{font-size:30px;}}
-
-	.swiper-prev{left:10px;}
-	.swiper-next{right:10px;}
 
 }

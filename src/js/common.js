@@ -2,7 +2,7 @@
 Author:kermit
 Email:455196886@qq.com
 Company:http://dragontrail.com/
-Creattime:2016-12-09
+Creattime:2017-1-08
 */
 
 //依赖jquery
@@ -10,65 +10,29 @@ Creattime:2016-12-09
 // 公共js
 var Common = function(){
 	var common = this;
-	var menu  = $('#menu');
-	var header  = $('header');
-	//打开菜单
-	common.OpenMenu = function(){
-		header.addClass('cover-header');
-		menu.addClass('slideInDown');
-		menu.removeClass('menu-hide slideOutUp');
+	common.screenWidth = $(window).width();
+	common.screenHeight = $(window).height();
+	//初始化
+	common.Init = function(){
+		//console.log('init');
+		common.WindowResize();
+		common.WindowScroll();
 	}
-	//关闭菜单
-	common.CloseMenu = function(){
-		menu.addClass('slideOutUp');
-		menu.removeClass('slideInDown');
-		header.removeClass('cover-header');
+	//页面窗口变化
+	common.WindowResize = function(){
+		$(window).resize(function(event){
+			common.screenWidth = $(window).width();
+			common.screenHeight = $(window).height();
+			//console.log('WindowResize',common.screenWidth,common.screenHeight);
+		});
 	}
-	//搜索框获取焦点
-	common.OpenSearchInputFocus = function(){
-		$("#search-focus-box").show();
+	//页面滚动
+	common.WindowScroll = function(){
+		$(window).on('scroll',function(){
+			var scrollTop = $(window).scrollTop();
+			//console.log('scrollTop',scrollTop);
+		});
 	}
-	//搜索框获取焦点
-	common.CloseSearchInputFocus = function(){
-		$("#search-focus-box").hide();
-	}
-	//打开手机搜索
-	common.OpenMobileSearch = function(){
-		$("#mobileSearch").addClass('fadeIn').removeClass('mobile-search-hide');
-	}
-	//关闭手机搜索
-	common.CloseMobileSearch = function(){
-		$("#mobileSearch").addClass('mobile-search-hide');
-	}
+	common.Init();
 }
-
-$(function(){
-	//公共实例化
-	var NewCommon = new Common();
-
-	//打开菜单
-	$("#openMenuBtn").click(function(event){
-		NewCommon.OpenMenu();
-	});
-	//关闭菜单
-	$("#closeMenuBtn").click(function(event){
-		NewCommon.CloseMenu();
-	});
-	//打开搜索
-	$("#searchInput").focus(function(){
-		NewCommon.OpenSearchInputFocus();
-	});
-	//关闭搜索内容
-	$("#closeSearchBtn").click(function(event) {
-		NewCommon.CloseSearchInputFocus();
-	});
-	//打开手机搜索
-	$("#openMobileSearch").click(function(){
-		NewCommon.OpenMobileSearch();
-	});
-	//关闭手机搜索内容
-	$("#CloseMobileSearch").click(function(event) {
-		NewCommon.CloseMobileSearch();
-	});
-
-});
+Common();
