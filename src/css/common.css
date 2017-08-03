@@ -1,1 +1,393 @@
-.float-left{float:left}.float-right{float:right}.clear{clear:both}.after-clear::after{content:'';display:block;width:100%;height:0;clear:both}.text-left{text-align:left}.text-right{text-align:right}.text-center{text-align:center}.text-red{color:#e71e0f}.single_text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.vertical-center{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center}.border-box{box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-webkit-box-sizing:border-box}.img-box{line-height:0;font-size:0}.animation from{width:100px;height:100px;background-color:#00f}.animation to{width:300px;height:300px;background-color:red}@keyframes animation{from{width:100px;height:100px;background-color:#00f}to{width:300px;height:300px;background-color:red}}@-moz-keyframes animation{from{width:100px;height:100px;background-color:#00f}to{width:300px;height:300px;background-color:red}}@-webkit-keyframes animation{from{width:100px;height:100px;background-color:#00f}to{width:300px;height:300px;background-color:red}}@-o-keyframes animation{from{width:100px;height:100px;background-color:#00f}to{width:300px;height:300px;background-color:red}}.animation_demo{width:100px;height:100px;background-color:#00f;animation:animation 2s ease-in-out 1 normal forwards;-ms-animation:animation 2s ease-in-out 1 normal forwards;-moz-animation:animation 2s ease-in-out 1 normal forwards;-webkit-animation:animation 2s ease-in-out 1 normal forwards;-o-animation:animation 2s ease-in-out 1 normal forwards}.transition_demo{width:100px;height:100px;background-color:#00f;transition:all 2s ease 0s;-ms-transition:all 2s ease 0s;-moz-transition:all 2s ease 0s;-webkit-transition:all 2s ease 0s;-o-transition:all 2s ease 0s}.transition_demo:hover{width:300px;height:300px;background-color:red}.animation-rotate from{transform:rotate(0);-ms-transform:rotate(0);-moz-transform:rotate(0);-webkit-transform:rotate(0);-o-transform:rotate(0)}.animation-rotate to{transform:rotate(360deg);-ms-transform:rotate(360deg);-moz-transform:rotate(360deg);-webkit-transform:rotate(360deg);-o-transform:rotate(360deg)}@keyframes animation-rotate{from{transform:rotate(0);-ms-transform:rotate(0);-moz-transform:rotate(0);-webkit-transform:rotate(0);-o-transform:rotate(0)}to{transform:rotate(360deg);-ms-transform:rotate(360deg);-moz-transform:rotate(360deg);-webkit-transform:rotate(360deg);-o-transform:rotate(360deg)}}@-moz-keyframes animation-rotate{from{transform:rotate(0);-ms-transform:rotate(0);-moz-transform:rotate(0);-webkit-transform:rotate(0);-o-transform:rotate(0)}to{transform:rotate(360deg);-ms-transform:rotate(360deg);-moz-transform:rotate(360deg);-webkit-transform:rotate(360deg);-o-transform:rotate(360deg)}}@-webkit-keyframes animation-rotate{from{transform:rotate(0);-ms-transform:rotate(0);-moz-transform:rotate(0);-webkit-transform:rotate(0);-o-transform:rotate(0)}to{transform:rotate(360deg);-ms-transform:rotate(360deg);-moz-transform:rotate(360deg);-webkit-transform:rotate(360deg);-o-transform:rotate(360deg)}}@-o-keyframes animation-rotate{from{transform:rotate(0);-ms-transform:rotate(0);-moz-transform:rotate(0);-webkit-transform:rotate(0);-o-transform:rotate(0)}to{transform:rotate(360deg);-ms-transform:rotate(360deg);-moz-transform:rotate(360deg);-webkit-transform:rotate(360deg);-o-transform:rotate(360deg)}}.animation-rotate-un from{transform:rotate(0);-ms-transform:rotate(0);-moz-transform:rotate(0);-webkit-transform:rotate(0);-o-transform:rotate(0)}.animation-rotate-un to{transform:rotate(-360deg);-ms-transform:rotate(-360deg);-moz-transform:rotate(-360deg);-webkit-transform:rotate(-360deg);-o-transform:rotate(-360deg)}@keyframes animation-rotate-un{from{transform:rotate(0);-ms-transform:rotate(0);-moz-transform:rotate(0);-webkit-transform:rotate(0);-o-transform:rotate(0)}to{transform:rotate(-360deg);-ms-transform:rotate(-360deg);-moz-transform:rotate(-360deg);-webkit-transform:rotate(-360deg);-o-transform:rotate(-360deg)}}@-moz-keyframes animation-rotate-un{from{transform:rotate(0);-ms-transform:rotate(0);-moz-transform:rotate(0);-webkit-transform:rotate(0);-o-transform:rotate(0)}to{transform:rotate(-360deg);-ms-transform:rotate(-360deg);-moz-transform:rotate(-360deg);-webkit-transform:rotate(-360deg);-o-transform:rotate(-360deg)}}@-webkit-keyframes animation-rotate-un{from{transform:rotate(0);-ms-transform:rotate(0);-moz-transform:rotate(0);-webkit-transform:rotate(0);-o-transform:rotate(0)}to{transform:rotate(-360deg);-ms-transform:rotate(-360deg);-moz-transform:rotate(-360deg);-webkit-transform:rotate(-360deg);-o-transform:rotate(-360deg)}}@-o-keyframes animation-rotate-un{from{transform:rotate(0);-ms-transform:rotate(0);-moz-transform:rotate(0);-webkit-transform:rotate(0);-o-transform:rotate(0)}to{transform:rotate(-360deg);-ms-transform:rotate(-360deg);-moz-transform:rotate(-360deg);-webkit-transform:rotate(-360deg);-o-transform:rotate(-360deg)}}
+/*
+*
+===== 布局相关 =====
+*
+*/
+.vertical-center {
+  /* Center vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.clear {
+  clear: both;
+}
+.after-clear::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0;
+  clear: both;
+}
+.full-box {
+  width: 100%;
+  height: 100%;
+}
+.border-box {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.img-box {
+  line-height: 0;
+  font-size: 0;
+}
+/*
+*
+===== 页面辅助相关 =====
+*
+*/
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.single_text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*
+*
+===== 动画相关 =====
+*
+*/
+.animation from {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+.animation to {
+  width: 300px;
+  height: 300px;
+  background-color: red;
+}
+@keyframes animation {
+  from {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+  }
+  to {
+    width: 300px;
+    height: 300px;
+    background-color: red;
+  }
+}
+@-moz-keyframes animation {
+  from {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+  }
+  to {
+    width: 300px;
+    height: 300px;
+    background-color: red;
+  }
+}
+@-webkit-keyframes animation {
+  from {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+  }
+  to {
+    width: 300px;
+    height: 300px;
+    background-color: red;
+  }
+}
+@-o-keyframes animation {
+  from {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+  }
+  to {
+    width: 300px;
+    height: 300px;
+    background-color: red;
+  }
+}
+.animation_demo {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  animation: animation 2s ease-in-out 1 normal forwards;
+  -ms-animation: animation 2s ease-in-out 1 normal forwards;
+  -moz-animation: animation 2s ease-in-out 1 normal forwards;
+  -webkit-animation: animation 2s ease-in-out 1 normal forwards;
+  -o-animation: animation 2s ease-in-out 1 normal forwards;
+}
+.transition_demo {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  transition: all 2s ease 0s;
+  -ms-transition: all 2s ease 0s;
+  -moz-transition: all 2s ease 0s;
+  -webkit-transition: all 2s ease 0s;
+  -o-transition: all 2s ease 0s;
+}
+.transition_demo:hover {
+  width: 300px;
+  height: 300px;
+  background-color: red;
+}
+.animation-rotate from {
+  transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  /* IE 9 */
+  -moz-transform: rotate(0deg);
+  /* Firefox */
+  -webkit-transform: rotate(0deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(0deg);
+  /* Opera */
+}
+.animation-rotate to {
+  transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  /* IE 9 */
+  -moz-transform: rotate(360deg);
+  /* Firefox */
+  -webkit-transform: rotate(360deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(360deg);
+  /* Opera */
+}
+@keyframes animation-rotate {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -moz-transform: rotate(360deg);
+    /* Firefox */
+    -webkit-transform: rotate(360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(360deg);
+    /* Opera */
+  }
+}
+@-moz-keyframes animation-rotate {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -moz-transform: rotate(360deg);
+    /* Firefox */
+    -webkit-transform: rotate(360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(360deg);
+    /* Opera */
+  }
+}
+@-webkit-keyframes animation-rotate {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -moz-transform: rotate(360deg);
+    /* Firefox */
+    -webkit-transform: rotate(360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(360deg);
+    /* Opera */
+  }
+}
+@-o-keyframes animation-rotate {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -moz-transform: rotate(360deg);
+    /* Firefox */
+    -webkit-transform: rotate(360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(360deg);
+    /* Opera */
+  }
+}
+.animation-rotate-un from {
+  transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  /* IE 9 */
+  -moz-transform: rotate(0deg);
+  /* Firefox */
+  -webkit-transform: rotate(0deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(0deg);
+  /* Opera */
+}
+.animation-rotate-un to {
+  transform: rotate(-360deg);
+  -ms-transform: rotate(-360deg);
+  /* IE 9 */
+  -moz-transform: rotate(-360deg);
+  /* Firefox */
+  -webkit-transform: rotate(-360deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(-360deg);
+  /* Opera */
+}
+@keyframes animation-rotate-un {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    /* IE 9 */
+    -moz-transform: rotate(-360deg);
+    /* Firefox */
+    -webkit-transform: rotate(-360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(-360deg);
+    /* Opera */
+  }
+}
+@-moz-keyframes animation-rotate-un {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    /* IE 9 */
+    -moz-transform: rotate(-360deg);
+    /* Firefox */
+    -webkit-transform: rotate(-360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(-360deg);
+    /* Opera */
+  }
+}
+@-webkit-keyframes animation-rotate-un {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    /* IE 9 */
+    -moz-transform: rotate(-360deg);
+    /* Firefox */
+    -webkit-transform: rotate(-360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(-360deg);
+    /* Opera */
+  }
+}
+@-o-keyframes animation-rotate-un {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -moz-transform: rotate(0deg);
+    /* Firefox */
+    -webkit-transform: rotate(0deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(0deg);
+    /* Opera */
+  }
+  to {
+    transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    /* IE 9 */
+    -moz-transform: rotate(-360deg);
+    /* Firefox */
+    -webkit-transform: rotate(-360deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(-360deg);
+    /* Opera */
+  }
+}

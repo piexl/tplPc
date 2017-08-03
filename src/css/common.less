@@ -3,6 +3,29 @@
 
 //基础公共样式
 
+/*
+*
+===== 布局相关 =====
+*
+*/
+
+//垂直居中对齐的盒子
+.vertical-center{
+    /* Center vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
 //浮动
 .float-left{float:left;}
 .float-right{float:right;}
@@ -17,18 +40,37 @@
   }
 }
 
+//充满盒子
+.full-box{
+  width:100%;
+  height:100%;
+}
+
+//设置border-box和模型
+.border-box{
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -ms-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+
+//图片盒子
+.img-box{
+  line-height:0;
+  font-size:0;
+}
+
+
+/*
+*
+===== 页面辅助相关 =====
+*
+*/
+
 //文字对齐方式
 .text-left{text-align:left;}
 .text-right{text-align:right;}
 .text-center{text-align:center;}
-
-//文字颜色
-.text-red{color:@color-red;}
-
-//字体
-.font(@fontWeight:normal,@fontSize:14px,@lineHeight:1.5,@fontFamily:'Microsoft YaHei'){
-  font:@fontWeight @fontSize/@lineHeight @fontFamily;
-}
 
 //单行文字溢出省略
 .single_text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
@@ -40,6 +82,13 @@
   display: -webkit-box;
   -webkit-line-clamp:@linenum;
   -webkit-box-orient: vertical;
+}
+
+//input的placeholder颜色
+.placeholder(@color: @input-color-placeholder){
+  &::-moz-placeholder           { color: @color; } // Firefox
+  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
 }
 
 //透明度
@@ -64,42 +113,19 @@
   -webkit-box-shadow: @arguments;
 }
 
-//垂直居中对其的盒子
-.vertical-center{
-    /* Center vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
+// 渐变背景
+.linear-gradient(@angle, @fromColor, @fromColorOpacity,  @ToColor, @ToColorOpacity){
+  background-image: -moz-linear-gradient(@angle, @fromColor @fromColorOpacity, @ToColor @ToColorOpacity);
+  background-image: -webkit-linear-gradient(@angle, @fromColor @fromColorOpacity, @ToColor @ToColorOpacity);
+  background-image: -ms-linear-gradient(@angle, @fromColor @fromColorOpacity, @ToColor @ToColorOpacity);
 }
 
-.border-box{
-  box-sizing:border-box;
-  -moz-box-sizing:border-box;
-  -ms-box-sizing:border-box;
-  -webkit-box-sizing:border-box;
-}
 
-//input的placeholder颜色
-.placeholder(@color: @input-color-placeholder){
-  &::-moz-placeholder           { color: @color; } // Firefox
-  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
-  &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
-}
-
-.img-box{
-  line-height:0;
-  font-size:0;
-}
-
+/*
+*
+===== 动画相关 =====
+*
+*/
 
 //动画样式
 .animation(@name,@duration,@speed,@number,@direction, @mode){
